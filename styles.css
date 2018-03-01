@@ -1,0 +1,96 @@
+body {
+	height: 100%;
+	font: 400 25px system-ui;
+}
+
+.container {
+	max-width: 900px;
+	width: 100%;
+	margin: 100px auto 0 auto;
+}
+
+.problem {
+	text-align: center;
+}
+
+.problem button {
+	font-size: 25px;
+	margin-top: 30px;
+	padding: 5px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+	border-color: transparent;
+	/*box-shadow: 0 0 13px rgba(0,0,0,.5);*/
+	color: #fff;
+}
+
+.problem button:focus {
+	outline: none;
+}
+
+.solutionContainer {
+	margin-top: 50px;
+}
+
+.solutionContainer img {
+	display: none;
+	position: relative;
+    top: -59px;
+    z-index: -1;
+}
+
+canvas {
+	margin: auto;
+	display: none;
+}
+
+.inputAnswer {
+	border: 1px solid #999;
+	border-radius: 3px;
+	font-size: 15px;
+	text-align: center;
+	display: none;
+	width: 15px;
+}
+
+.number {
+	padding: 2px 4px;
+	border-radius: 3px;
+}
+
+.resInput {
+	font-size: 25px;
+	border: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	text-align: center;
+	width: 30px;
+}
+
+.startButton {
+	background-color: #00bcd4;
+	
+}
+
+.newTaskButton {
+	background-color: #ffacac;
+	-webkit-animation: pulse 2s infinite;
+    animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    51% {
+        -webkit-transform: scale(1.05);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+#newTask {
+	display: none;
+}
+

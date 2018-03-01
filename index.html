@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Add app</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="problem">
+			<div>
+				<span id="firstNumber" class="number"></span>
+				<span> + </span>
+				<span id="secondNumber" class="number"></span>
+				<span> =</span>
+				<input type="text" name="res" id="resultInput" class="resInput" value="?">
+			</div>
+			<button id="solve" class="problemButton startButton">
+				<span>Решить!</span>
+			</button>
+			<button id="newTask" class="problemButton newTaskButton">
+				<span>Новый пример</span>
+			</button>
+		</div>
+		<div class="solutionContainer">
+			<input type="text" name="a" id="firstAnswer" class="inputAnswer">
+			<input type="text" name="b" id="secondAnswer" class="inputAnswer">
+			<canvas id="coordinates" width="830px" height="100px"></canvas>
+			<img id="numberLine" src="sprite.png" width="857px" height="83px">
+		</div>
+	</div>
+</body>
+</html>
