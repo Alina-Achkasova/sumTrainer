@@ -4,6 +4,8 @@ $(document).ready(function() {
 	var firstNum = $("#firstNumber").html();
 	$("#secondNumber").html(Math.floor(Math.random()*(4)+11) - firstNum);
 	var secondNum = $("#secondNumber").html();
+	$("#firstAnswer").val('');
+	$("#secondAnswer").val('');
 	$("#resultInput").val('?');
 
 	$("#solve").click(function() {
