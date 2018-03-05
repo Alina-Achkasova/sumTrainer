@@ -18,7 +18,7 @@ $(document).ready(function() {
 		var c=$("#coordinates")[0];
 		var ctx=c.getContext("2d");
 		ctx.strokeStyle = '#d45b91';
-		ctx.lineWidth = 2.5;
+		ctx.lineWidth = 2;
 		var coefficient = 38;
 		var bezierXforA = coefficient*firstNum + 1;
 		ctx.beginPath();
