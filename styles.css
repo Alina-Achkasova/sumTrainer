@@ -94,3 +94,7 @@ canvas {
 	display: none;
 }
 
+input:focus {
+	outline: none;
+}
+

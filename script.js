@@ -18,6 +18,7 @@ $(document).ready(function() {
 		var c=$("#coordinates")[0];
 		var ctx=c.getContext("2d");
 		ctx.strokeStyle = '#d45b91';
+		ctx.lineWidth = 2;
 		var coefficient = 38;
 		var bezierXforA = coefficient*firstNum + 1;
 		ctx.beginPath();
@@ -31,6 +32,7 @@ $(document).ready(function() {
 		
 		$("#firstAnswer").css('margin-left', bezierXforA/2 + 25 + 'px');
 		$("#firstAnswer").fadeIn("slow");
+		$("#firstAnswer").focus();
 
 		$("#firstAnswer").on("input", function() {
 			if ($("#firstAnswer").val() === firstNum) {
@@ -52,6 +54,7 @@ $(document).ready(function() {
 				ctx.stroke();
 				$("#secondAnswer").show();
 				$("#secondAnswer").css('margin-left', bezierXforB/2 - 25 + 'px');
+				$("#secondAnswer").focus();
 
 				$("#secondAnswer").on("input", function() {
 					if ($("#secondAnswer").val() === secondNum) {
@@ -63,22 +66,31 @@ $(document).ready(function() {
 						$("#secondAnswer").prop('disabled', true);
 						$("#resultInput").val('');
 						$("#resultInput").css('border', '1px solid #999');
-						$("#resultInput").on("input", function() {
-							if ($("#resultInput").val() == +firstNum + +secondNum) {
-								$("#resultInput").css('border-color', 'transparent');
-								$("#resultInput").val(+firstNum + +secondNum);
-								$("#resultInput").css('background-color', 'white');
-								$("#resultInput").css('color', 'black');
-								$("#resultInput").prop('disabled', true);
-								$("#newTask").css("opacity", 1);
-								$("#newTask").click(function() {
-									location.reload();
-								});
+						$("#resultInput").focus();
 
-							} else {
-								$("#resultInput").css('color', 'red');
-							}
+						$("#resultInput").on("input", function() {
+						    $("#resultInput").css('color', 'black');
+						    $("#resultInput").bind('blur keyup',function(e) {
+								if (e.type === 'blur' || e.keyCode === 13) {
+									$("#resultInput").css('color', 'black');
+									if ($("#resultInput").val() == +firstNum + +secondNum) {
+										$("#resultInput").css('border-color', 'transparent');
+										$("#resultInput").val(+firstNum + +secondNum);
+										$("#resultInput").css('background-color', 'white');
+										$("#resultInput").prop('disabled', true);
+										$("#newTask").css("opacity", 1);
+										$("#newTask").click(function() {
+											localStorage.setItem("firstTime", "false");
+											location.reload();
+										});
+
+									} else {
+										$("#resultInput").css('color', 'red');
+									}
+								}
+							});
 						});
+						
 					} else {
 						$("#secondAnswer").css('color', 'red');
 						$("#secondNumber").css('background-color', '#faa84b');
@@ -90,4 +102,8 @@ $(document).ready(function() {
 			}
 		})	
 	});
+
+	if (localStorage.getItem("firstTime") == 'false') {
+		$("#solve").trigger("click");
+	}
 });
