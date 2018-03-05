@@ -73,7 +73,7 @@ canvas {
 }
 
 .newTaskButton {
-	background-color: #ffacac;
+	background-color: #d45b91;
 	-webkit-animation: pulse 2s infinite;
     animation: pulse 1s infinite;
 }
